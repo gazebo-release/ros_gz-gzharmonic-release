@@ -1,4 +1,4 @@
-From a83d9b2a8677872248e831e45f51150a371c419e Mon Sep 17 00:00:00 2001
+From 041a0bf6bab24eefbba50352b9b665f4e8a9136e Mon Sep 17 00:00:00 2001
 From: Jose Luis Rivero <jrivero@osrfoundation.org>
 Date: Tue, 3 Oct 2023 16:20:57 +0200
 Subject: [PATCH 2/3] Patch name to release harmonic version
