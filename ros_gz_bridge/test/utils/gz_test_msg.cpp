@@ -283,7 +283,9 @@ void compareTestMsg(const std::shared_ptr<gz::msgs::SensorNoise> & _msg)
   gz::msgs::SensorNoise expected_msg;
   createTestMsg(expected_msg);
 
-  EXPECT_EQ(expected_msg.type(), gz::msgs::SensorNoise_Type::SensorNoise_Type_GAUSSIAN_QUANTIZED);
+  EXPECT_EQ(
+    expected_msg.type(),
+    gz::msgs::SensorNoise_Type::SensorNoise_Type_GAUSSIAN_QUANTIZED);
   EXPECT_EQ(expected_msg.mean(), _msg->mean());
   EXPECT_EQ(expected_msg.stddev(), _msg->stddev());
   EXPECT_EQ(expected_msg.bias_mean(), _msg->bias_mean());
@@ -369,7 +371,6 @@ void createTestMsg(gz::msgs::PoseWithCovariance & _msg)
 {
   createTestMsg(*_msg.mutable_pose()->mutable_position());
   createTestMsg(*_msg.mutable_pose()->mutable_orientation());
-  createTestMsg(*_msg.mutable_pose()->mutable_header());
   for (int i = 0; i < 36; i++) {
     _msg.mutable_covariance()->add_data(i);
   }
@@ -416,6 +417,9 @@ void createTestMsg(gz::msgs::Twist & _msg)
 
 void compareTestMsg(const std::shared_ptr<gz::msgs::Twist> & _msg)
 {
+  if (_msg->has_header()) {
+    compareTestMsg(std::make_shared<gz::msgs::Header>(_msg->header()));
+  }
   compareTestMsg(std::make_shared<gz::msgs::Vector3d>(_msg->linear()));
   compareTestMsg(std::make_shared<gz::msgs::Vector3d>(_msg->angular()));
 }
@@ -424,15 +428,12 @@ void createTestMsg(gz::msgs::TwistWithCovariance & _msg)
 {
   gz::msgs::Vector3d linear_msg;
   gz::msgs::Vector3d angular_msg;
-  gz::msgs::Header header_msg;
 
   createTestMsg(linear_msg);
   createTestMsg(angular_msg);
-  createTestMsg(header_msg);
 
   _msg.mutable_twist()->mutable_linear()->CopyFrom(linear_msg);
   _msg.mutable_twist()->mutable_angular()->CopyFrom(angular_msg);
-  _msg.mutable_twist()->mutable_header()->CopyFrom(header_msg);
   for (int i = 0; i < 36; i++) {
     _msg.mutable_covariance()->add_data(i);
   }
@@ -607,6 +608,7 @@ void compareTestMsg(const std::shared_ptr<gz::msgs::Contacts> & _msg)
   }
 }
 
+#if HAVE_DATAFRAME
 void createTestMsg(gz::msgs::Dataframe & _msg)
 {
   gz::msgs::Header header_msg;
@@ -644,6 +646,7 @@ void compareTestMsg(const std::shared_ptr<gz::msgs::Dataframe> & _msg)
   EXPECT_EQ(expected_msg.dst_address(), _msg->dst_address());
   EXPECT_EQ(expected_msg.data(), _msg->data());
 }
+#endif  // HAVE_DATAFRAME
 
 void createTestMsg(gz::msgs::Image & _msg)
 {
@@ -1459,6 +1462,81 @@ void compareTestMsg(const std::shared_ptr<gz::msgs::VideoRecord> & _msg)
   EXPECT_EQ(expected_msg.stop(), _msg->stop());
   EXPECT_EQ(expected_msg.format(), _msg->format());
   EXPECT_EQ(expected_msg.save_filename(), _msg->save_filename());
+}
+
+void createTestMsg(gz::msgs::AnnotatedAxisAligned2DBox & _msg)
+{
+  gz::msgs::Header header_msg;
+
+  createTestMsg(header_msg);
+
+  _msg.mutable_header()->CopyFrom(header_msg);
+
+  _msg.set_label(1);
+
+  gz::msgs::AxisAligned2DBox * box = new gz::msgs::AxisAligned2DBox();
+  gz::msgs::Vector2d * min_corner = new gz::msgs::Vector2d();
+  gz::msgs::Vector2d * max_corner = new gz::msgs::Vector2d();
+
+  min_corner->set_x(2.0);
+  min_corner->set_y(2.0);
+  max_corner->set_x(4.0);
+  max_corner->set_y(6.0);
+  box->set_allocated_min_corner(min_corner);
+  box->set_allocated_max_corner(max_corner);
+  _msg.set_allocated_box(box);
+}
+
+void compareTestMsg(const std::shared_ptr<gz::msgs::AnnotatedAxisAligned2DBox> & _msg)
+{
+  gz::msgs::AnnotatedAxisAligned2DBox expected_msg;
+  createTestMsg(expected_msg);
+
+  compareTestMsg(std::make_shared<gz::msgs::Header>(_msg->header()));
+
+  EXPECT_EQ(expected_msg.label(), _msg->label());
+
+  gz::msgs::AxisAligned2DBox expected_box = expected_msg.box();
+  gz::msgs::Vector2d expected_min_corner = expected_box.min_corner();
+  gz::msgs::Vector2d expected_max_corner = expected_box.max_corner();
+
+  gz::msgs::AxisAligned2DBox box = _msg->box();
+  gz::msgs::Vector2d min_corner = box.min_corner();
+  gz::msgs::Vector2d max_corner = box.max_corner();
+
+  EXPECT_EQ(expected_min_corner.x(), min_corner.x());
+  EXPECT_EQ(expected_min_corner.y(), min_corner.y());
+  EXPECT_EQ(expected_max_corner.x(), max_corner.x());
+  EXPECT_EQ(expected_max_corner.y(), max_corner.y());
+}
+
+void createTestMsg(gz::msgs::AnnotatedAxisAligned2DBox_V & _msg)
+{
+  gz::msgs::Header header_msg;
+
+  createTestMsg(header_msg);
+
+  _msg.mutable_header()->CopyFrom(header_msg);
+
+  for (size_t i = 0; i < 4; i++) {
+    gz::msgs::AnnotatedAxisAligned2DBox * box = _msg.add_annotated_box();
+    createTestMsg(*box);
+  }
+}
+
+void compareTestMsg(const std::shared_ptr<gz::msgs::AnnotatedAxisAligned2DBox_V> & _msg)
+{
+  gz::msgs::AnnotatedAxisAligned2DBox_V expected_msg;
+  createTestMsg(expected_msg);
+
+  compareTestMsg(std::make_shared<gz::msgs::Header>(_msg->header()));
+
+  for (size_t i = 0; i < 4; i++) {
+    compareTestMsg(
+      std::make_shared<gz::msgs::AnnotatedAxisAligned2DBox>(
+        _msg->annotated_box(
+          i)));
+  }
 }
 
 }  // namespace testing

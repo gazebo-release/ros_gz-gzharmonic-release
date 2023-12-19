@@ -36,19 +36,15 @@ MAPPINGS = {
         Mapping('PoseArray', 'Pose_V'),
         Mapping('PoseStamped', 'Pose'),
         Mapping('PoseWithCovariance', 'PoseWithCovariance'),
-        Mapping('PoseWithCovarianceStamped', 'PoseWithCovariance'),
         Mapping('Quaternion', 'Quaternion'),
         Mapping('Transform', 'Pose'),
         Mapping('TransformStamped', 'Pose'),
         Mapping('Twist', 'Twist'),
+        Mapping('TwistStamped', 'Twist'),
         Mapping('TwistWithCovariance', 'TwistWithCovariance'),
-        Mapping('TwistWithCovarianceStamped', 'TwistWithCovariance'),
         Mapping('Wrench', 'Wrench'),
         Mapping('WrenchStamped', 'Wrench'),
         Mapping('Vector3', 'Vector3d'),
-    ],
-    'gps_msgs': [
-        Mapping('GPSFix', 'NavSat'),
     ],
     'nav_msgs': [
         Mapping('Odometry', 'Odometry'),
@@ -61,7 +57,6 @@ MAPPINGS = {
         Mapping('Altimeter', 'Altimeter'),
         Mapping('Contact', 'Contact'),
         Mapping('Contacts', 'Contacts'),
-        Mapping('Dataframe', 'Dataframe'),
         Mapping('Entity', 'Entity'),
         Mapping('Float32Array', 'Float_V'),
         Mapping('GuiCamera', 'GUICamera'),
@@ -106,5 +101,15 @@ MAPPINGS = {
     ],
     'trajectory_msgs': [
         Mapping('JointTrajectory', 'JointTrajectory'),
+    ],
+    'vision_msgs': [
+        Mapping('Detection2DArray', 'AnnotatedAxisAligned2DBox_V'),
+        Mapping('Detection2D', 'AnnotatedAxisAligned2DBox'),
+    ],
+}
+
+MAPPINGS_8_4_0 = {
+    'ros_gz_interfaces': [
+        Mapping('Dataframe', 'Dataframe'),
     ],
 }

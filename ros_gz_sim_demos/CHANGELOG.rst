@@ -2,31 +2,15 @@
 Changelog for package ros1_gz_sim_demos
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-0.246.0 (2023-08-31)
---------------------
+0.244.12 (2023-12-13)
+---------------------
+* [backport Humble] Added more topic to the bridge (`#422 <https://github.com/gazebosim/ros_gz/issues/422>`_)
 * Added more topic to the bridge (`#422 <https://github.com/gazebosim/ros_gz/issues/422>`_)
-* Fix incorrect subscription on demo (`#405 <https://github.com/gazebosim/ros_gz/issues/405>`_) (`#408 <https://github.com/gazebosim/ros_gz/issues/408>`_)
-  Co-authored-by: Arjo Chakravarty <arjoc@intrinsic.ai>
-* Port: humble to ros2 (`#386 <https://github.com/gazebosim/ros_gz/issues/386>`_)
-* Merge branch 'humble' into mjcarroll/humble_to_ros2
-* Update maintainers (`#376 <https://github.com/gazebosim/ros_gz/issues/376>`_)
-* Rename 'ign gazebo' to 'gz sim' (`#343 <https://github.com/gazebosim/ros_gz/issues/343>`_)
-* Create bridge for GPSFix msg (`#316 <https://github.com/gazebosim/ros_gz/issues/316>`_)
-* Humble ➡️ ROS2 (`#323 <https://github.com/gazebosim/ros_gz/issues/323>`_)
-* Fixed ros_gz_sim_demos launch files (`#319 <https://github.com/gazebosim/ros_gz/issues/319>`_)
-* Contributors: Aditya Pande, Alejandro Hernández Cordero, Clyde McQueen, Michael Carroll, Rousseau Vincent, ahcorde
+* Fix incorrect subscription on demo (`#405 <https://github.com/gazebosim/ros_gz/issues/405>`_)
+* Contributors: Alejandro Hernández Cordero, Arjo Chakravarty
 
-0.245.0 (2022-10-12)
---------------------
-* humble to ros2 (`#311 <https://github.com/gazebosim/ros_gz/issues/311>`_)
-  Co-authored-by: Michael Carroll <michael@openrobotics.org>
-* Merge remote-tracking branch 'origin/humble' into ahcorde/humble_to_ros2
-* Remove all ignition references on ROS 2 branch (`#302 <https://github.com/gazebosim/ros_gz/issues/302>`_)
-  * Remove all shims
-  * Update CMakeLists and package.xml for garden
-  * Complete garden gz renaming
-  * Drop fortress CI
-* Contributors: Alejandro Hernández Cordero, Michael Carroll, ahcorde
+0.244.11 (2023-05-23)
+---------------------
 
 0.244.10 (2023-05-03)
 ---------------------
