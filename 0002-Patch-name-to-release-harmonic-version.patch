@@ -1,7 +1,7 @@
-From a76b8f77b916107f1de7d7683334d1443aa378e1 Mon Sep 17 00:00:00 2001
+From 2fd540cffaf59f9e3b5cd13d07699a93fc22196b Mon Sep 17 00:00:00 2001
 From: Jose Luis Rivero <jrivero@osrfoundation.org>
 Date: Thu, 21 Dec 2023 16:41:37 +0100
-Subject: [PATCH 2/3] Patch name to release harmonic version
+Subject: [PATCH 2/4] Patch name to release harmonic version
 
 ---
  debian/changelog.em | 2 +-
@@ -9,7 +9,7 @@ Subject: [PATCH 2/3] Patch name to release harmonic version
  2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/debian/changelog.em b/debian/changelog.em
-index 3585909..40fb7d2 100644
+index 35859090..40fb7d27 100644
 --- a/debian/changelog.em
 +++ b/debian/changelog.em
 @@ -1,4 +1,4 @@
@@ -19,7 +19,7 @@ index 3585909..40fb7d2 100644
  @(changelog)
  
 diff --git a/debian/control.em b/debian/control.em
-index 6d7b65c..27bef8d 100644
+index 6d7b65c3..27bef8d8 100644
 --- a/debian/control.em
 +++ b/debian/control.em
 @@ -1,4 +1,4 @@
