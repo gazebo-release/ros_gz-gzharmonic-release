@@ -1,21 +1,22 @@
-From 8d5de3328404b688ef5ce99d5ea74154992a61eb Mon Sep 17 00:00:00 2001
+From 9731c938f48222ba2cd5ebe1bde544109a04e461 Mon Sep 17 00:00:00 2001
 From: Jose Luis Rivero <jrivero@osrfoundation.org>
-Date: Thu, 21 Dec 2023 16:41:41 +0100
-Subject: [PATCH 3/4] Set up a conflict with official ROS packages
+Date: Fri, 22 Dec 2023 12:11:07 +0100
+Subject: [PATCH 4/4] Set up a conflict with official ROS packages
 
 ---
- debian/control.em | 1 +
- 1 file changed, 1 insertion(+)
+ debian/control.em | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/debian/control.em b/debian/control.em
-index 27bef8d8..8bd01de9 100644
+index 8bd01de9..7b1169d7 100644
 --- a/debian/control.em
 +++ b/debian/control.em
-@@ -9,6 +9,7 @@ Standards-Version: 3.9.2
+@@ -9,7 +9,7 @@ Standards-Version: 3.9.2
  Package: @(Package.replace('-gz','-gzharmonic'))
  Architecture: any
  Depends: ${shlibs:Depends}, ${misc:Depends}, @(', '.join(Depends))
-+Conflicts: @(Package.replace('-gz','-gzgarden'))
+-Conflicts: @(Package.replace('-gz','-gzgarden'))
++Conflicts: @(Package), @(Package.replace('-gz','-gzgarden'))
  @[if Conflicts]Conflicts: @(', '.join(Conflicts))@\n@[end if]@
  @[if Replaces]Replaces: @(', '.join(Replaces))@\n@[end if]@
  Description: @(Description)
