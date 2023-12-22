@@ -1,14 +1,14 @@
-From 9ee9c14301a001337589cd4a1f0c49e9bb5bd330 Mon Sep 17 00:00:00 2001
+From 0c5b5f85c7a4cc5a242699b99be73b4b65d80b20 Mon Sep 17 00:00:00 2001
 From: Jose Luis Rivero <jrivero@osrfoundation.org>
 Date: Thu, 21 Dec 2023 16:41:29 +0100
-Subject: [PATCH 6/6] Set up a conflict with official ROS packages
+Subject: [PATCH 6/7] Set up a conflict with official ROS packages
 
 ---
  debian/control.em | 1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/debian/control.em b/debian/control.em
-index 27bef8d..8bd01de 100644
+index 27bef8d8..8bd01de9 100644
 --- a/debian/control.em
 +++ b/debian/control.em
 @@ -9,6 +9,7 @@ Standards-Version: 3.9.2

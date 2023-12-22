@@ -1,14 +1,14 @@
-From 1731ed9aa28e485902ea8bf8258f6d2c1af8e18f Mon Sep 17 00:00:00 2001
+From 90a11c472ae19fe6201c6927b20905e9859e8397 Mon Sep 17 00:00:00 2001
 From: Jose Luis Rivero <jrivero@osrfoundation.org>
 Date: Thu, 21 Dec 2023 16:41:27 +0100
-Subject: [PATCH 4/6] Export GZ_VERSION in rules file
+Subject: [PATCH 4/7] Export GZ_VERSION in rules file
 
 ---
  debian/rules.em | 1 +
  1 file changed, 1 insertion(+)
 
 diff --git a/debian/rules.em b/debian/rules.em
-index 2ab7b14..9736245 100755
+index 2ab7b14a..97362456 100755
 --- a/debian/rules.em
 +++ b/debian/rules.em
 @@ -8,6 +8,7 @@

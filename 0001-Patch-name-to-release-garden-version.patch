@@ -1,7 +1,7 @@
-From 07bc853318a6473d6b5121b13a750d254f495223 Mon Sep 17 00:00:00 2001
+From cbcb88c73f9675e45e866dedef9692d30f32e4b2 Mon Sep 17 00:00:00 2001
 From: Jose Luis Rivero <jrivero@osrfoundation.org>
 Date: Wed, 15 Mar 2023 18:42:33 +0100
-Subject: [PATCH 1/6] Patch name to release garden version
+Subject: [PATCH 1/7] Patch name to release garden version
 
 ---
  debian/changelog.em | 2 +-
@@ -9,7 +9,7 @@ Subject: [PATCH 1/6] Patch name to release garden version
  2 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/debian/changelog.em b/debian/changelog.em
-index 3585909..71ff6d5 100644
+index 35859090..71ff6d51 100644
 --- a/debian/changelog.em
 +++ b/debian/changelog.em
 @@ -1,4 +1,4 @@
@@ -19,7 +19,7 @@ index 3585909..71ff6d5 100644
  @(changelog)
  
 diff --git a/debian/control.em b/debian/control.em
-index 6d7b65c..45f73a9 100644
+index 6d7b65c3..45f73a91 100644
 --- a/debian/control.em
 +++ b/debian/control.em
 @@ -1,4 +1,4 @@
